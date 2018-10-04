@@ -1,0 +1,97 @@
+:root {	
+    --questionp-padding: 24px;
+    --questionp-height: 435px;
+    --questionp-skeleton: linear-gradient(white var(--questionp-height), transparent 0);
+    
+    --avatar-size:6%;
+    --avatar-position: 7% 24%;
+    --avatar-skeleton: radial-gradient(circle 16px at center, lightgrey 99%, transparent 0);
+    --avatar-circle-1-position: 7% 35%;
+    --avatar-circle-2-position: 7% 46%;
+    
+    
+    --title-height: 25%;
+    --title-width: 60%;
+    --title-right-top-position:6%; 
+  
+    --title-right-bottom-position:5%;
+    
+    --title-position: var(--title-right-bottom-position) 6%;
+    --title-skeleton: linear-gradient(lightgrey var(--title-height), transparent 0);
+    
+    --desc-line-height: 16px;
+    --desc-line-width: 35% 4%;
+    --desc-line-position:20%;
+    --desc-line-skeleton: linear-gradient(lightgrey var(--desc-line-height), transparent 0);
+    --desc-line-1-width:35%;
+    --desc-line-1-position: var(--desc-line-position) 24%;
+    --desc-line-2-width:35%;
+    --desc-line-2-position: var(--desc-line-position) 35%;
+    --desc-line-3-width:35%;
+    --desc-line-3-position: var(--desc-line-position) 46%;
+    
+    --footer-height: 0%;
+    --footer-position: 0 calc(var(--questionp-height) - var(--footer-height));
+    --footer-skeleton: linear-gradient(lightgrey var(--footer-height), transparent 0);
+    --blur-width: 50%;
+    --blur-size: var(--blur-width) calc(var(--questionp-height) - var(--footer-height));
+  }
+  
+   /*
+ * questionp Skeleton for Loading
+ */
+.questionp {
+  width: 100%;
+  height: var(--questionp-height);
+  margin: 0 auto;
+}
+.questionp:empty::after {
+content: "";
+display: block;
+width: 100%;
+height: 100%;
+border-radius: 6px;
+box-shadow: 0 10px 45px rgba(0, 0, 0, 0.1);
+background-image: linear-gradient(90deg, rgba(211, 211, 211, 0) 0, rgba(211, 211, 211, 0.8) 50%, rgba(211, 211, 211, 0) 100%),
+        var(--title-skeleton),
+        var(--desc-line-skeleton),
+        var(--desc-line-skeleton),
+        var(--desc-line-skeleton),
+      
+        var(--avatar-skeleton),
+        var(--avatar-skeleton),
+        var(--avatar-skeleton),
+        var(--footer-skeleton),
+        var(--questionp-skeleton);
+        
+background-size: var(--blur-size),
+                 var(--title-width) var(--title-height),
+         var(--desc-line-1-width) var(--desc-line-height), 
+         var(--desc-line-2-width) var(--desc-line-height),
+         var(--desc-line-3-width) var(--desc-line-height),
+
+         var(--avatar-size) var(--avatar-size),
+         var(--avatar-size) var(--avatar-size),
+         var(--avatar-size) var(--avatar-size),
+        /* var(--avatar-circle-1-size) var(--avatar-circle-1-size),
+         var(--avatar-circle-2-size) var(--avatar-circle-2-size),*/
+         100% var(--footer-height),
+         100% 100%;
+         
+background-position: -150% 0,
+                var(--title-position), 
+        var(--desc-line-1-position),
+        var(--desc-line-2-position),
+        var(--desc-line-3-position),
+
+        var(--avatar-position),
+        var(--avatar-circle-1-position),
+        var(--avatar-circle-2-position),
+        var(--footer-position),
+        0 0;
+        
+background-repeat: no-repeat;
+/*-webkit-animation: loading 1.5s infinite;
+        animation: loading 1.5s infinite;
+        */
+}
